@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+ <html lang="cs">
+ <link rel="icon" href="https://img41.rajce.idnes.cz/d4102/19/19244/19244630_db82ad174937335b1a151341387b7af2/images/image_82x82.jpg?ver=1" type="image/png">
+
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Trek: Hudební Přehravač</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+ <div class="navbar">
+  
+  <div class="tabs">
+    <button id="page1-btn" class="tab-btn active">Hlavní přehrávač</button>
+    <button id="page2-btn" class="tab-btn">Offline Playlist</button>
+  </div>
+ 
+
+<!-- První stránka - Hlavní Přehrávač -->
+<div id="page1" class="page active">
+    <h1 class="header-title">STAR TREK: HUDEBNÍ PŘEHRÁVAČ</h1>
+  <audio id="audioPlayer">
+    <source id="audioSource" src="https://www.dropbox.com/scl/fi/x0z9ddkz3zfqrvcnb6nr8/Odysea-Kapit-na-Ar-era-1.mp3?rlkey=mlav41qi6qe5ukss3q4qdd8f6&st=44y26ef2&dl=1" type="audio/mpeg">
+    Váš prohlížeč nepodporuje audio element.
+  </audio>
+
+  <div class="player-container">
+    <h8 id="trackTitle">Vyberte skladbu</h8>
+
+    <div class="time-controls">
+      <span id="currentTime">
+        <span class="time-part">00</span>
+        <span class="time-separator">:</span>
+        <span class="time-part">00</span>
+        <span class="time-separator">:</span>
+        <span class="time-part">00</span>
+      </span>
+      <p>---</p>
+      <span id="duration">
+        <span class="time-part">00</span>
+        <span class="time-separator">:</span>
+        <span class="time-part">00</span>
+        <span class="time-separator">:</span>
+        <span class="time-part">00</span>
+      </span>
+    </div>
+    <input type="range" id="progress-bar" min="0" max="100" value="0">
+  </div>
+   
+  <div id="control-panel">
+    <div class="controls">
+      <button id="prev-button">◀️⬅️</button>
+      <button id="play-button">🚀</button>
+      <button id="pause-button">🖖⏸️</button>
+      <button id="next-button">▶️➡️</button>
+      <button id="loop-button">🔁</button>
+      <button id="shuffle-button">🔀</button>
+      <button id="reset-button">🔄</button>
+      <button id="fullscreen-toggle">⛶</button>
+      <button id="toggle-info-button">📋</button>
+      <button id="reload-button">🔄</button>
+      <button id="toggle-playlist-button">📋</button>
+      <button id="timer-button">⏰</button>
+    </div>
+
+    <div class="volume-controls">
+      <span id="volume-value">10</span>
+      <button id="mute-button">🔊</button>
+      <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+    </div>
+    
+    <div id="popisky">
+      <h3 class="popis">Klávesové zkratky</h3>
+      <p class="popis">(space) - (Pauza 🖖⏸️), (M) - Vypnutí Zvuku, (A) - snížit hlasitost 📣⬇️, (D) - Zvýšit Hlasitost 📣⬆️</p>
+      <p class="popis">(P) - pauza 🖖⏸️, (S) - zastavit, (R) - znovu spustit 🔁▶️</p>
+      <p class="popis">(F) - Celá Obrazovka ⛶</p>
+    </div>
+
+    <div class="playlist" id="playlist">
+      <!-- Seznam skladeb se vygeneruje pomocí JavaScriptu -->
+    </div>
+
+    <div class="container">
+      <div class="time-calendar-wrapper">
+        <!-- Časová komponenta -->
+        <div class="time">
+          <div class="time-colon">
+            <div class="time-text">
+              <span class="num hours">00</span>
+              <span class="text">H</span>
+            </div>
+          </div>
+          <span class="colon">:</span>
+          <div class="time-colon">
+            <div class="time-text">
+              <span class="num minutes">00</span>
+              <span class="text">M</span>
+            </div>
+          </div>
+          <span class="colon">:</span>
+          <div class="time-colon">
+            <div class="time-text">
+              <span class="num seconds">00</span>
+              <span class="text">S</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Kalendářní komponenta -->
+        <div class="calendar">
+          <div class="date" id="currentDate"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Přidej tento dialog časovače kamkoli do stránky (ideálně před footer) -->
+    <div class="timer-container" id="timer-container">
+      <div class="timer-display">
+        <span id="timer-minutes">15</span>:<span id="timer-seconds">00</span>
+      </div>
+      <div class="timer-controls">
+        <button id="timer-5">5 min</button>
+        <button id="timer-15">15 min</button>
+        <button id="timer-30">30 min</button>
+        <button id="timer-60">60 min</button>
+        <button id="timer-start">Start</button>
+        <button id="timer-stop">Stop</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Druhá stránka - Offline Playlist -->
+<div id="page2" class="page">
+  <h5>Offline Playlist</h5>
+    
+  <div id="prehravacKontejner">
+    <div id="nazevPisne">Žádná písnička není vybrána</div>
+  </div>
+    
+  <div id="progressKontejner">
+    <div id="cas">00:00:00</div>
+    <div id="progressBar">
+      <div id="progress"></div>
+    </div>
+    <div id="celkovyCas">00:00:00</div>
+  </div>
+        
+  <div id="ovladaciPrvky">
+    <div id="tlacitka">
+      <button class="tlacitko" id="prevBtn">⏮️</button>
+      <button class="tlacitko" id="playBtn">▶️</button>
+      <button class="tlacitko" id="nextBtn">⏭️</button>
+    </div>
+    <div id="hlasitostKontejner">
+      <div id="hlasitostIcon">🔊</div>
+      <div id="hlasitostSlider">
+        <div id="hlasitostUroven"></div>
+      </div>
+    </div>
+  </div>
+  
+  <audio id="prehravac"></audio>
+ 
+  
+  
+    <div class="uploadKontejner">
+      <label for="upload" id="uploadLabel">🎵 Nahrát písničky</label>
+<input type="file" id="upload" accept="audio/*" multiple hidden>
+          
+      <div class="stredovyDock">
+  <button id="ulozitBtn" onclick="ulozitPisnicky()">Uložit písničky</button>
+</div>
+    <div id="playlistPanel">
+    <h3>Playlist</h3>
+    <h4>Seznam písniček:</h4>
+    <ul id="playlisty"></ul>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Star Trek: Hudební Přehravač | Vytvořeno s láskou ke Star Treku
+</footer>
+
+ 
+       
+  <script src="script.js"></script>
+</body>
+</html>
