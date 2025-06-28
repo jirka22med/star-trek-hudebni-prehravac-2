@@ -526,7 +526,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
  
 { src: 'https://www.dropbox.com/scl/fi/umjyrkl3cxfm6majipbsl/mix-p-sni-ek-v.1.mp3?rlkey=zysejafc9fxbokz0pn8pep93w&st=s0pp6qup&dl=1', title: 'mix písniček v.1' },
-{ src: 'adresa2', title: 'https://www.dropbox.com/scl/fi/qgzcg0tiugq2eu39jbelt/mix-p-sni-ek-v.2.mp3?rlkey=l7q0yvnb0wwasy8l3lbtlmdul&st=mhusriun&dl=1' },
+{ src: 'https://www.dropbox.com/scl/fi/qgzcg0tiugq2eu39jbelt/mix-p-sni-ek-v.2.mp3?rlkey=l7q0yvnb0wwasy8l3lbtlmdul&st=mhusriun&dl=1', title: 'Mix písniček 2' },
 { src: 'https://www.dropbox.com/scl/fi/e8ixuz03io5rs078i4t2a/mix-p-sni-ek-v.3.mp3?rlkey=u6x614g67thnyn8r5782yyu99&st=5ou0v1rt&dl=1', title: 'mix písniček v.3' },
 { src: 'https://www.dropbox.com/scl/fi/2gjdeaxxxoce5uqcal5tf/mix-p-sni-ek-v.4.mp3?rlkey=0y9zcm985mxz6hosbqufmkezm&st=2ww2ralg&dl=1', title: 'mix písniček v.4' },
 { src: 'https://www.dropbox.com/scl/fi/sjhs5uj26d8nhzcte42uo/mix-p-sni-ek-v.5.mp3?rlkey=fiqw8vnrmkxcwh52bjuthywst&st=w3s64nld&dl=1', title: 'mix písniček v.5' },
